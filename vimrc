@@ -291,3 +291,5 @@ if &diff
 endif
 let g:go_version_warning = 0
 
+" support c++11
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
