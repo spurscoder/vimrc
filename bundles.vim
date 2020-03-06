@@ -12,29 +12,29 @@ Bundle 'gmarik/vundle'
 " Code Completions
 "------------------
 Bundle 'Shougo/neocomplcache'
-Bundle 'mattn/emmet-vim'
+"Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 " snippets
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-"------ snipmate dependencies -------
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+"  Bundle 'garbas/vim-snipmate'
+"  Bundle 'honza/vim-snippets'
+"  "------ snipmate dependencies -------
+"  Bundle 'MarcWeber/vim-addon-mw-utils'
+"  Bundle 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation
 "-----------------
-Bundle 'edsono/vim-matchit'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'edsono/vim-matchit'
+"Bundle 'Lokaltog/vim-easymotion'
 
 "--------------
 " Fast editing
 "--------------
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'sjl/gundo.vim'
-Bundle 'godlygeek/tabular'
+"Bundle 'tpope/vim-surround'
+"Bundle 'scrooloose/nerdcommenter'
+"Bundle 'sjl/gundo.vim'
+"Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "--------------
@@ -45,16 +45,16 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'bronson/vim-trailing-whitespace'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'bronson/vim-trailing-whitespace'
 
 "-------------
 " Other Utils
 "-------------
 " Bundle 'humiaozuzu/fcitx-status'
-Bundle 'nvie/vim-togglemouse'
+"Bundle 'nvie/vim-togglemouse'
 
 "----------------------------------------
 " Syntax/Indent for language enhancement
@@ -62,7 +62,7 @@ Bundle 'nvie/vim-togglemouse'
 "------- web backend ---------
 "Bundle '2072/PHP-Indenting-for-VIm'
 "Bundle 'tpope/vim-rails'
-Bundle 'lepture/vim-jinja'
+"Bundle 'lepture/vim-jinja'
 "Bundle 'digitaltoad/vim-jade'
 
 "------- web frontend ----------
@@ -83,10 +83,10 @@ Bundle 'tpope/vim-markdown'
 " Bundle 'tpope/vim-endwise'
 
 "------- Go ----------
-Bundle 'fatih/vim-go'
+"Bundle 'fatih/vim-go'
 
 "------- FPs ------
-Bundle 'kien/rainbow_parentheses.vim'
+"Bundle 'kien/rainbow_parentheses.vim'
 " Bundle 'wlangstroth/vim-racket'
 " Bundle 'vim-scripts/VimClojure'
 " Bundle 'rosstimson/scala-vim-support'
@@ -94,12 +94,12 @@ Bundle 'kien/rainbow_parentheses.vim'
 "--------------
 " Color Schemes
 "--------------
-Bundle 'rickharris/vim-blackboard'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'rickharris/vim-monokai'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'fisadev/fisa-vim-colorscheme'
+"Bundle 'rickharris/vim-blackboard'
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'rickharris/vim-monokai'
+"Bundle 'tpope/vim-vividchalk'
+"Bundle 'Lokaltog/vim-distinguished'
+"Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'fisadev/fisa-vim-colorscheme'
 
 filetype plugin indent on     " required!

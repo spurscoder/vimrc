@@ -11,6 +11,8 @@ filetype plugin indent on
 " enable syntax hightlight and completion
 syntax on
 
+let mapleader = "\<Space>"
+
 "--------
 " Vim UI
 "--------
@@ -77,7 +79,7 @@ autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 soft
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
 " syntax support
-autocmd Syntax javascript set syntax=jquery   " JQuery syntax support
+"autocmd Syntax javascript set syntax=jquery   " JQuery syntax support
 " js
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
@@ -87,26 +89,26 @@ let g:html_indent_style1 = "inc"
 " Plugin settings
 "-----------------
 " Rainbow parentheses for Lisp and variants
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+"let g:rbpt_max = 16
+"autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
 " tabbar
 let g:Tb_MaxSize = 2
@@ -118,7 +120,7 @@ hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
 " easy-motion
-let g:EasyMotion_leader_key = '<Leader>'
+"let g:EasyMotion_leader_key = '<Leader>'
 
 " Tagbar
 let g:tagbar_left=1
@@ -168,7 +170,7 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 
 " ZenCoding
-let g:user_emmet_expandabbr_key='<C-j>'
+"let g:user_emmet_expandabbr_key='<C-j>'
 
 " powerline
 "let g:Powerline_symbols = 'fancy'
@@ -189,9 +191,9 @@ imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
 smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 if !exists('g:neocomplcache_omni_patterns')
@@ -213,11 +215,37 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
-nmap <F3> :GundoToggle<cr>
+nmap <F7> :set rnu! rnu?<cr>
+"nmap <F3> :GundoToggle<cr>
+nmap <F3> :set wrap! wrap?<cr>
 nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
+
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap U <C-r>
+
+map <Leader>sa ggVG"
+
+"Keep search pattern at the center of the screen."
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+"Reselect visual bolck after indent/outdent.
+vnoremap < <gv
+vnoremap > >gv
+
+"
+nnoremap ; :
+
+"
+nnoremap H ^
+nnoremap L $
 
 "------------------
 " Useful Functions
@@ -285,11 +313,44 @@ if ! has("gui_running")
 endif
 
 if &diff
-    "let g:apprentice_termcolors=256
     colorscheme apprentice
-    "colorscheme gruvbox
 endif
+
 let g:go_version_warning = 0
 
 " support c++11
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+set updatetime=300
+
+"" status line
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline guibg=Cyan ctermfg=6 guifg=Black ctermbg=0
+  elseif a:mode == 'r'
+    hi statusline guibg=Purple ctermfg=5 guifg=Black ctermbg=0
+  else
+    hi statusline guibg=DarkRed ctermfg=1 guifg=Black ctermbg=0
+  endif
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline guibg=DarkGrey ctermfg=16 guifg=White ctermbg=2
+hi statusline guibg=DarkGrey ctermfg=16 guifg=White ctermbg=2
+hi statuslinenc guibg=DarkGrey ctermfg=8 guifg=White ctermbg=2
+
+" Formats the statusline
+set statusline=\ Buf:%n\ \|\                     " Buffer number
+set statusline+=File:\ \%f\ \|\                            " file name
+set statusline+=%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}\ \|\   "file format
+set statusline+=%y\ \|\       "filetype
+set statusline+=%h\       "help file flag
+set statusline+=%m\       "modified flag
+set statusline+=%r\       "read only flag
+
+set statusline+=\ %=                        " align left
+set statusline+=\|\ Line:%02l/%L\ [%03p%%]\             " line X of Y [percent of file]
+set statusline+=\|\ Col:%02v\                     " current column
+set statusline+=\|\ [%03b][0x%02B]\               " ASCII and byte code under cursor
+
