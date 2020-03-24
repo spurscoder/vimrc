@@ -43,22 +43,23 @@ set smartcase
 " editor settings
 set history=1000
 set nocompatible
-set nofoldenable                                                  " disable folding"
+" set nofoldenable                                                  " disable folding"
+set foldmethod=indent
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
 set mouse=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set nowrap                                                        " dont wrap lines
-set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
+set scrolloff=10                                                   " 5 lines above/below cursor when scrolling
 set number                                                        " show line numbers
+set relativenumber                                                        " show line numbers
 set showmatch                                                     " show matching bracket (briefly jump)
 set showcmd                                                       " show typed command in status bar
 set title                                                         " show file in titlebar
 set laststatus=2                                                  " use 2 lines for the status bar
 set matchtime=2                                                   " show matching bracket for 0.2 seconds
 " set matchpairs+=<:>                                               " specially for html
-" set relativenumber
 
 " Default Indentation
 set autoindent
@@ -67,14 +68,13 @@ set tabstop=4       " tab width
 set softtabstop=4   " backspace
 set shiftwidth=4    " indent width
 " set textwidth=79
-" set smarttab
+set smarttab
 set expandtab       " expand tab to space
 
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-autocmd FileType ruby,cpp,c setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType ruby,cpp,c setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
 autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=80
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
@@ -118,9 +118,6 @@ hi Tb_Normal guifg=white ctermfg=white
 hi Tb_Changed guifg=green ctermfg=green
 hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
-
-" easy-motion
-"let g:EasyMotion_leader_key = '<Leader>'
 
 " Tagbar
 let g:tagbar_left=1
@@ -213,28 +210,28 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " Keybindings for plugin toggle
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-nmap <F5> :TagbarToggle<cr>
-nmap <F6> :NERDTreeToggle<cr>
-nmap <F7> :set rnu! rnu?<cr>
-"nmap <F3> :GundoToggle<cr>
-nmap <F3> :set wrap! wrap?<cr>
-nmap <F4> :IndentGuidesToggle<cr>
-nmap  <D-/> :
+nnoremap <F3> :set wrap! wrap?<cr>
+nnoremap <F4> :IndentGuidesToggle<cr>
+nnoremap <F5> :TagbarToggle<cr>
+nnoremap <F6> :NERDTreeToggle<cr>
+nnoremap <F7> :set rnu! rnu?<cr>
+nnoremap  <D-/> :
 
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>e :wq<CR>
 nnoremap U <C-r>
 
 map <Leader>sa ggVG"
 
 "Keep search pattern at the center of the screen."
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
+" nnoremap <silent> n nzz
+" nnoremap <silent> N Nzz
+" nnoremap <silent> * *zz
+" nnoremap <silent> # #zz
+" nnoremap <silent> g* g*zz
 
 "Reselect visual bolck after indent/outdent.
 vnoremap < <gv
@@ -242,6 +239,7 @@ vnoremap > >gv
 
 "
 nnoremap ; :
+nnoremap : ;
 
 "
 nnoremap H ^
@@ -278,7 +276,6 @@ vmap <D-[> <gv
 vmap <D-]> >gv
 
 " eggcache vim
-" nnoremap ; :
 :command W w
 :command WQ wq
 :command Wq wq
@@ -335,22 +332,23 @@ function! InsertStatuslineColor(mode)
 endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline guibg=DarkGrey ctermfg=16 guifg=White ctermbg=2
-hi statusline guibg=DarkGrey ctermfg=16 guifg=White ctermbg=2
-hi statuslinenc guibg=DarkGrey ctermfg=8 guifg=White ctermbg=2
+au InsertLeave * hi statusline guibg=DarkGrey ctermfg=240 guifg=White ctermbg=86
+hi statusline guibg=DarkGrey ctermfg=240 guifg=White ctermbg=86
+hi statuslinenc guibg=DarkGrey ctermfg=8 guifg=White ctermbg=30
 
 " Formats the statusline
 set statusline=\ Buf:%n\ \|\                     " Buffer number
-set statusline+=File:\ \%f\ \|\                            " file name
+set statusline+=%{getcwd()}\ \|\      "modified flag
 set statusline+=%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}\ \|\   "file format
-set statusline+=%y\ \|\       "filetype
+set statusline+=%y\       "filetype
 set statusline+=%h\       "help file flag
 set statusline+=%m\       "modified flag
 set statusline+=%r\       "read only flag
+set statusline+=F:%f\                             " file name
 
 set statusline+=\ %=                        " align left
-set statusline+=\|\ Line:%02l/%L\ [%03p%%]\             " line X of Y [percent of file]
+set statusline+=Line:%02l/%L\ [%03p%%]\             " line X of Y [percent of file]
 set statusline+=\|\ Col:%02v\                     " current column
 set statusline+=\|\ [%03b][0x%02B]\               " ASCII and byte code under cursor
 

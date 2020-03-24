@@ -31,10 +31,10 @@ Bundle 'ervandew/supertab'
 "--------------
 " Fast editing
 "--------------
-"Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-surround'
 "Bundle 'scrooloose/nerdcommenter'
 "Bundle 'sjl/gundo.vim'
-"Bundle 'godlygeek/tabular'
+Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "--------------
@@ -48,7 +48,7 @@ Bundle 'kien/ctrlp.vim'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'scrooloose/syntastic'
-"Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'bronson/vim-trailing-whitespace'
 
 "-------------
 " Other Utils
