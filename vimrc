@@ -129,27 +129,30 @@ let g:SuperTabRetainCompletionType=2
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
-" " gitgutter
-" " highlight SignColumn guibg=Cyan ctermbg=25
-" 
-" " gundo
-" nnoremap <leader>h :GundoToggle<CR>
-" 
-" " ease-align
-" " vmap <Leader>a <Plug>(EasyAlign)
-" " nmap <Leader>a <Plug>(EasyAlign)
-" " if !exists('g:easy_align_delimiters')
-"   " let g:easy_align_delimiters = {}
-" " endif
-" " let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
-" 
-" " multi-cursor
-" let g:multi_cursor_use_default_mapping=0
-" " Default mapping
-" let g:multi_cursor_next_key='<C-m>'
-" let g:multi_cursor_prev_key='<C-p>'
-" let g:multi_cursor_skip_key='<C-x>'
-" let g:multi_cursor_quit_key='<Esc>'
+" gundo
+nnoremap <leader>h :GundoToggle<CR>
+
+" ease-align
+" vmap <Leader>a <Plug>(EasyAlign)
+" nmap <Leader>a <Plug>(EasyAlign)
+" if !exists('g:easy_align_delimiters')
+  " let g:easy_align_delimiters = {}
+" endif
+" let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+
+" multi-cursor
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" gitgutter
+highlight GitGutterAdd    guifg=#009900 ctermfg=1 ctermbg=0
+highlight GitGutterChange guifg=#bbbb00 ctermfg=1 ctermbg=0
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1 ctermbg=0
+highlight clear SignColumn
 
 "-----------------------------------------
 " Key Mapping

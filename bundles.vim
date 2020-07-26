@@ -22,10 +22,11 @@ Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/nerdcommenter'
-" Bundle 'junegunn/vim-easy-align'
-" Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'Lokaltog/vim-easymotion'
+Bundle 'junegunn/vim-easy-align'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Valloric/YouCompleteMe'
 
 "--------------
 " IDE features
@@ -35,13 +36,13 @@ Bundle 'majutsushi/tagbar'
 " curl https://beyondgrep.com/ack-2.22-single-file > /ssd1/exec/wangjp/tools/bin/ack && chmod 0755 /ssd1/exec/wangjp/tools/bin/ack
 " brew install ack
 Bundle 'mileszs/ack.vim'
-Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-powerline'
 " Bundle 'scrooloose/syntastic'
+Bundle 'kien/ctrlp.vim'
 "FixWhitespace
-" Bundle 'bronson/vim-trailing-whitespace'
-" Bundle 'airblade/vim-gitgutter'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'airblade/vim-gitgutter'
 
 "----------------------------------------
 " Syntax/Indent for language enhancement

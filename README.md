@@ -1,3 +1,16 @@
+MY .VIMRC
+=========
+
+## install
+
+```
+1.git clone this repo
+2.mv * .vim
+3.git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle // or my vundle.git
+4.BundleInstall
+```
+
+
 Maple's Vim config
 ==================
 
