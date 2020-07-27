@@ -133,8 +133,8 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 nnoremap <leader>h :GundoToggle<CR>
 
 " ease-align
-" vmap <Leader>a <Plug>(EasyAlign)
-" nmap <Leader>a <Plug>(EasyAlign)
+vmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 " if !exists('g:easy_align_delimiters')
   " let g:easy_align_delimiters = {}
 " endif
