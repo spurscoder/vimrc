@@ -26,7 +26,7 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 "--------------
 " IDE features
