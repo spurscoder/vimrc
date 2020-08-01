@@ -60,9 +60,9 @@ Such as completions for variable names and function names(neocomplcache), expand
 Compile Vim with `--enable-pythoninterp` and `--enable-rubyinterp` to enable powerful syntax completion supplied by neocomplcache.
 
 ``` bash
-brew install macvim --override-system-vim  # OS X
-yaourt -S gvim                             # ArchLinux
-sudo apt-get install vim-gtk               # Ubuntu
+brew install macvim --override-system-vim # OS X
+yaourt -S gvim                            # ArchLinux
+sudo apt-get install vim-gtk              # Ubuntu
 ```
 
 ### Tutorial

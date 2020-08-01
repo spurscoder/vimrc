@@ -27,7 +27,7 @@ set cursorline cursorcolumn
 
 " search
 set incsearch
-" set hlsearch
+set hlsearch
 set ignorecase
 set smartcase
 
