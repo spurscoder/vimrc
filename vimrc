@@ -102,6 +102,7 @@ let NERDCompactSexyComs=1
 
 " powerline
 " let g:Powerline_symbols = 'fancy'
+let g:Powerline_stl_path_style = 'short'
 
 " NeoComplCache
 let g:neocomplcache_enable_at_startup=1
