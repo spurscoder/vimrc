@@ -59,12 +59,12 @@ set shiftwidth=4    " indent width
 set smarttab
 set expandtab       " expand tab to space
 
-autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType php,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType ruby,cpp,c,cu,cuda setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=80
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType coffee,javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=0
+autocmd FileType sass,scss,css setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 
 "--------------------------------
 " Plugin settings
@@ -102,6 +102,7 @@ let NERDCompactSexyComs=1
 
 " powerline
 " let g:Powerline_symbols = 'fancy'
+let g:Powerline_stl_path_style = 'short'
 
 " NeoComplCache
 let g:neocomplcache_enable_at_startup=1
@@ -153,6 +154,7 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=1 ctermbg=0
 highlight GitGutterChange guifg=#bbbb00 ctermfg=1 ctermbg=0
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1 ctermbg=0
 highlight clear SignColumn
+let g:gitgutter_max_signs=9999
 
 let g:EasyMotion_smartcase = 1
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
