@@ -179,10 +179,12 @@ nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>e :wq<CR>
+" nnoremap <leader>e :wq<CR>
 nnoremap U <C-r>
 
 map <Leader>sa ggVG"
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
 
 "Reselect visual bolck after indent/outdent.
 vnoremap < <gv
@@ -191,6 +193,8 @@ nnoremap ; :
 nnoremap : ;
 nnoremap H ^
 nnoremap L $
+vnoremap H ^
+vnoremap L $
 
 "------------------
 " Useful Functions
