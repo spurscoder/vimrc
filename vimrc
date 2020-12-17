@@ -35,6 +35,7 @@ set smartcase
 set history=10000
 set nocompatible
 set nofoldenable                 " disable folding "
+set foldmethod=indent            " default fold method = indent."
 set confirm                      " prompt when existing from an unsaved file "
 set backspace=indent,eol,start   " More powerful backspacing "
 set t_Co=256                     " Explicitly tell vim that the terminal has 256 colors
