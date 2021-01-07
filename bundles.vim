@@ -45,6 +45,8 @@ Bundle 'kien/ctrlp.vim'
 "FixWhitespace
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'lfv89/vim-interestingwords'
+Bundle 'itchyny/vim-cursorword'
 
 "----------------------------------------
 " Syntax/Indent for language enhancement
