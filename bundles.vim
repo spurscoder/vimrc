@@ -29,6 +29,7 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'Valloric/YouCompleteMe'
+Bundle 'szw/vim-maximizer'
 
 "--------------
 " IDE features

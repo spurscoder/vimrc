@@ -79,6 +79,17 @@ hi Tb_Changed guifg=green ctermfg=green
 hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
+" tabline
+hi TabLine      guifg=Blue guibg=Black ctermfg=231 ctermbg=black cterm=none
+hi TabLineSel   guifg=Blue guibg=Black ctermfg=231 ctermbg=100 cterm=bold
+hi TabLineFill  guifg=Blue guibg=Black ctermfg=231 ctermbg=black cterm=none
+nnoremap <leader>t :tabnext<CR>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+
 " Tagbar
 let g:tagbar_left=1
 let g:tagbar_width=30
@@ -179,13 +190,13 @@ nnoremap <silent> N :call WordNavigation(0)<cr>
 " Key Mapping
 "-----------------------------------------
 " Keybindings for plugin toggle
-nnoremap <F2> :set invpaste paste?<CR>
+nnoremap <F8> :set invpaste paste?<CR>
 nnoremap <F3> :set wrap! wrap?<cr>
 nnoremap <F4> :IndentGuidesToggle<cr>
 nnoremap <F5> :TagbarToggle<cr>
 nnoremap <F6> :NERDTreeToggle<cr>
 nnoremap <F7> :set rnu! rnu?<cr>
-set pastetoggle=<F2>
+set pastetoggle=<F8>
 
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
@@ -257,6 +268,14 @@ endif
 if ! has("gui_running")
     set t_Co=256
 endif
+
+" vim-maximizer
+let g:maximizer_set_default_mapping = 1
+let g:maximizer_set_mapping_with_bang = 0
+let g:maximizer_default_mapping_key = '<F2>'
+nnoremap <F2> :MaximizerToggle<CR>
+vnoremap <F2> :MaximizerToggle<CR>gv
+inoremap <F2> <C-o>:MaximizerToggle<CR>
 
 "--------------------------------------------
 " 补充
