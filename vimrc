@@ -208,13 +208,18 @@ nmap ga <Plug>(EasyAlign)
 " endif
 " let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
 
-" multi-cursor
-let g:multi_cursor_use_default_mapping=0
-" Default mapping
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" " multi-cursor
+" let g:multi_cursor_use_default_mapping=0
+" " Default mapping
+" let g:multi_cursor_next_key='<C-m>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
+" vim-visual-multi
+let g:VM_theme = "spacegray"
+let g:VM_maps = {}
+let g:VM_maps["Select Cursor Down"] = '<M-C-Down>'      " start selecting down
+let g:VM_maps["Select Cursor Up"]   = '<M-C-Up>'        " start selecting up
 
 " gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=1 ctermbg=0
