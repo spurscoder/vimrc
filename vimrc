@@ -79,16 +79,56 @@ hi Tb_Changed guifg=green ctermfg=green
 hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
-" tabline
-hi TabLine      guifg=Blue guibg=Black ctermfg=231 ctermbg=black cterm=none
-hi TabLineSel   guifg=Blue guibg=Black ctermfg=231 ctermbg=100 cterm=bold
-hi TabLineFill  guifg=Blue guibg=Black ctermfg=231 ctermbg=black cterm=none
+" tabline start
+hi TabLine      guifg=Blue guibg=Black ctermfg=254 ctermbg=black cterm=none
+hi TabLineSel   guifg=Blue guibg=Black ctermfg=Black ctermbg=39  cterm=bold
+hi TabLineFill  guifg=Blue guibg=Black ctermfg=254 ctermbg=black cterm=none
+
+function MyTabLine()
+	let s = ''
+	let t = tabpagenr()
+	let i = 1
+	while i <= tabpagenr('$')
+	  let buflist = tabpagebuflist(i)
+	  let winnr = tabpagewinnr(i)
+	  let s .= '%' . i . 'T'
+	  let s .= (i == t ? '%1*' : '%2*')
+	  let s .= ' '
+	  let s .= i . ':'
+	  let s .= winnr . '/' . tabpagewinnr(i,'$')
+	  let s .= ' %*'
+	  let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+	  let bufnr = buflist[winnr - 1]
+	  let file = bufname(bufnr)
+	  let buftype = getbufvar(bufnr, 'buftype')
+	  if buftype == 'nofile'
+		if file =~ '\/.'
+		  let file = substitute(file, '.*\/\ze.', '', '')
+		endif
+	  else
+		let file = fnamemodify(file, ':p:t')
+	  endif
+	  if file == ''
+		let file = '[No Name]'
+	  endif
+	  let s .= file
+	  let i = i + 1
+	endwhile
+	let s .= '%T%#TabLineFill#%='
+	let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+	return s
+endfunction
+set stal=2
+set tabline=%!MyTabLine()
+
 nnoremap <leader>t :tabnext<CR>
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
 nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
+
+" tabline end
 
 " Tagbar
 let g:tagbar_left=1
@@ -201,7 +241,7 @@ set pastetoggle=<F8>
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
 nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :up<CR>
 " nnoremap <leader>e :wq<CR>
 nnoremap U <C-r>
 
