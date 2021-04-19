@@ -84,7 +84,7 @@ hi TabLine      guifg=Blue guibg=Black ctermfg=251 ctermbg=black cterm=none
 hi TabLineSel   guifg=Blue guibg=Black ctermfg=Black ctermbg=39  cterm=bold
 hi TabLineFill  guifg=Blue guibg=Black ctermfg=251 ctermbg=black cterm=none
 
-function MyTabLine()
+function! MyTabLine()
 	let s = ''
 	let t = tabpagenr()
 	let i = 1
@@ -142,6 +142,10 @@ nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
 nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
 
 " tabline end
 
