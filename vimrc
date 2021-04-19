@@ -105,8 +105,8 @@ function! MyTabLine()
       endfor
 
 	  let s .= i . ':'
-	  let s .= winnr . '/' . tabpagewinnr(i,'$')
-	  let s .= ' '
+	  " let s .= winnr . '/' . tabpagewinnr(i,'$')
+	  " let s .= ' '
 	  let bufnr = buflist[winnr - 1]
 	  let file = bufname(bufnr)
 	  let buftype = getbufvar(bufnr, 'buftype')
