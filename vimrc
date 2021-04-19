@@ -80,9 +80,9 @@ hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
 " tabline start
-hi TabLine      guifg=Blue guibg=Black ctermfg=254 ctermbg=black cterm=none
+hi TabLine      guifg=Blue guibg=Black ctermfg=251 ctermbg=black cterm=none
 hi TabLineSel   guifg=Blue guibg=Black ctermfg=Black ctermbg=39  cterm=bold
-hi TabLineFill  guifg=Blue guibg=Black ctermfg=254 ctermbg=black cterm=none
+hi TabLineFill  guifg=Blue guibg=Black ctermfg=251 ctermbg=black cterm=none
 
 function MyTabLine()
 	let s = ''
