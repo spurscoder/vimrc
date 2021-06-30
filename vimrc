@@ -80,24 +80,33 @@ hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
 " tabline start
-hi TabLine      guifg=Blue guibg=Black ctermfg=254 ctermbg=black cterm=none
+hi TabLine      guifg=Blue guibg=Black ctermfg=251 ctermbg=black cterm=none
 hi TabLineSel   guifg=Blue guibg=Black ctermfg=Black ctermbg=39  cterm=bold
-hi TabLineFill  guifg=Blue guibg=Black ctermfg=254 ctermbg=black cterm=none
+hi TabLineFill  guifg=Blue guibg=Black ctermfg=251 ctermbg=black cterm=none
 
-function MyTabLine()
+function! MyTabLine()
 	let s = ''
 	let t = tabpagenr()
 	let i = 1
+
 	while i <= tabpagenr('$')
 	  let buflist = tabpagebuflist(i)
 	  let winnr = tabpagewinnr(i)
 	  let s .= '%' . i . 'T'
 	  let s .= (i == t ? '%1*' : '%2*')
-	  let s .= ' '
-	  let s .= i . ':'
-	  let s .= winnr . '/' . tabpagewinnr(i,'$')
-	  let s .= ' %*'
 	  let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+	  let s .= ' '
+      " Add '+' if one of the buffers in the tab page is modified
+      for bufnr in buflist
+        if getbufvar(bufnr, "&modified")
+          let s .= '* '
+          break
+        endif
+      endfor
+
+	  let s .= i . ':'
+	  " let s .= winnr . '/' . tabpagewinnr(i,'$')
+	  " let s .= ' '
 	  let bufnr = buflist[winnr - 1]
 	  let file = bufname(bufnr)
 	  let buftype = getbufvar(bufnr, 'buftype')
@@ -112,16 +121,23 @@ function MyTabLine()
 		let file = '[No Name]'
 	  endif
 	  let s .= file
+	  let s .= ' %*'
+
 	  let i = i + 1
 	endwhile
+
 	let s .= '%T%#TabLineFill#%='
 	let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+
 	return s
+
 endfunction
+
 set stal=2
 set tabline=%!MyTabLine()
 
 nnoremap <leader>t :tabnext<CR>
+nnoremap <leader>T :tabprevious<CR>
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -193,13 +209,18 @@ nmap ga <Plug>(EasyAlign)
 " endif
 " let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
 
-" multi-cursor
-let g:multi_cursor_use_default_mapping=0
-" Default mapping
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" " multi-cursor
+" let g:multi_cursor_use_default_mapping=0
+" " Default mapping
+" let g:multi_cursor_next_key='<C-m>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
+" vim-visual-multi
+let g:VM_theme = "spacegray"
+let g:VM_maps = {}
+let g:VM_maps["Select Cursor Down"] = '<M-C-Down>'      " start selecting down
+let g:VM_maps["Select Cursor Up"]   = '<M-C-Up>'        " start selecting up
 
 " gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=1 ctermbg=0
